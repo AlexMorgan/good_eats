@@ -1,0 +1,23 @@
+<h1>Details</h1>
+
+<p><%= @restaurant.name %></p>
+<p><%= @restaurant.address %></p>
+<p><%= @restaurant.description %></p>
+<p><%= @restaurant.category %></p>
+
+<%= link_to 'Back', :back %>
+
+<h3>Leave Comment</h3>
+
+<%= form_for [@restaurant, @review] do |f| %>
+  <div><%= f.label :review %></div>
+  <%= f.text_area :review %><br><br>
+
+  <div><%= f.label :body %></div>
+  <%= f.select :body, Review.reviews, prompt: "Select review" %><br><br>
+
+  <div><%= f.submit "Submit", class: "btn btn-primary"%></div><br><br>
+<% end %>
+
+<%= link_to 'Back', :back %>
+

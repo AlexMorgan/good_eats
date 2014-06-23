@@ -1,0 +1,26 @@
+<%= form_for [@restaurant] do |f| %>
+  <div><%= f.label :name %></div>
+  <%= f.text_field :name %><br><br>
+
+  <div><%= f.label :address %></div>
+  <%= f.text_field :address %><br><br>
+
+  <div><%= f.label :city %></div>
+  <%= f.text_field :city %><br><br>
+
+  <div><%= f.label :state %></div>
+  <%= f.text_field :state %><br><br>
+
+  <div><%= f.label :zipcode %></div>
+  <%= f.text_field :zipcode %><br><br>
+
+  <div><%= f.label :category %></div>
+  <%= f.select :category, Restaurant.categories, prompt: "Select category" %><br><br>
+
+  <div><%= f.label :description %></div>
+  <%= f.text_area :description %><br><br>
+
+  <div><%= f.submit "Submit", class: "btn btn-primary"%></div><br><br>
+<% end %>
+
+<%= link_to 'Back', :back %>
