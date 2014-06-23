@@ -27,10 +27,11 @@ ActiveRecord::Schema.define(version: 20140623012446) do
   end
 
   create_table "reviews", force: true do |t|
-    t.integer "review"
-    t.text    "body"
-    t.integer "restaurant_id"
-    t.string  "timestamps"
+    t.integer  "user_review"
+    t.text     "body"
+    t.integer  "restaurant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

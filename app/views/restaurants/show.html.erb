@@ -5,19 +5,23 @@
 <p><%= @restaurant.description %></p>
 <p><%= @restaurant.category %></p>
 
-<%= link_to 'Back', :back %>
+<h3>Reviews</h3>
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li>User Rating: <%= review.user_review %><cite> <%= review.body %></cite></li>
+  <% end %>
+</ul>
 
 <h3>Leave Comment</h3>
 
 <%= form_for [@restaurant, @review] do |f| %>
-  <div><%= f.label :review %></div>
-  <%= f.text_area :review %><br><br>
+  <div><%= f.label "Description" %></div>
+  <%= f.text_area :body %><br><br>
 
-  <div><%= f.label :body %></div>
-  <%= f.select :body, Review.reviews, prompt: "Select review" %><br><br>
+  <div><%= f.label :user_review %></div>
+  <%= f.select :user_review, Review.reviews, prompt: "Select review" %><br><br>
 
   <div><%= f.submit "Submit", class: "btn btn-primary"%></div><br><br>
 <% end %>
 
 <%= link_to 'Back', :back %>
-
